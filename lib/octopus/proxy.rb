@@ -360,7 +360,7 @@ class Octopus::Proxy
 
   # Try to use slaves if and only if `replicated: true` is specified in `shards.yml` and no slaves groups are defined
   def should_send_queries_to_replicated_databases?(method)
-    @replicated && method.to_s =~ /select/ && !self.block && !slaves_grouped?
+    @replicated && method.to_s =~ /select/ && !slaves_grouped?
   end
 
   def send_queries_to_selected_slave(method, *args, &block)
